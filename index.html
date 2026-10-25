@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WiFi Recovery</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0e17">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- الشاشة 0: طلب السماح -->
+  <section id="screen-permission" class="screen active">
+    <div class="hero">
+      <div class="logo">📡</div>
+      <h1>WiFi Recovery</h1>
+      <p class="sub">للكشف عن شبكات الواي فاي المحيطة واختبار قوة كلمات المرور</p>
+    </div>
+    <div class="perm-card">
+      <h2>مطلوب صلاحية الوصول</h2>
+      <p>لكي نعرض لك شبكات الواي فاي المحيطة، يحتاج التطبيق إلى صلاحية الموقع والشبكات. اضغط "السماح" للمتابعة.</p>
+      <button id="btn-allow" class="btn primary">السماح</button>
+      <button id="btn-deny" class="btn ghost">رفض</button>
+    </div>
+  </section>
+
+  <!-- الشاشة 1: قائمة الشبكات -->
+  <section id="screen-networks" class="screen">
+    <header class="topbar">
+      <h2>الشبكات المتاحة</h2>
+      <button id="btn-refresh" class="icon-btn" title="تحديث">⟳</button>
+    </header>
+
+    <div id="platform-note" class="note hidden"></div>
+
+    <ul id="network-list" class="network-list"></ul>
+
+    <div class="manual-box">
+      <p>أو أدخل اسم الشبكة يدوياً:</p>
+      <div class="row">
+        <input id="manual-ssid" type="text" placeholder="SSID" />
+        <button id="btn-manual" class="btn primary small">تخمين</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- الشاشة 2: جارٍ التحميل -->
+  <section id="screen-loading" class="screen">
+    <div class="loader"></div>
+    <h2 id="loading-title">جارٍ التحميل…</h2>
+    <p id="loading-detail" class="sub">تحضير القوائم…</p>
+    <div class="progress-wrap"><div id="progress-bar" class="progress-bar"></div></div>
+    <button id="btn-stop" class="btn ghost">إيقاف</button>
+  </section>
+
+  <!-- الشاشة 3: النتيجة -->
+  <section id="screen-result" class="screen">
+    <div id="result-icon" class="result-icon">✅</div>
+    <h2 id="result-title">تم معرفة كلمة المرور</h2>
+    <div id="result-password" class="password-box"></div>
+    <p id="result-meta" class="sub"></p>
+    <button id="btn-back" class="btn primary">رجوع للشبكات</button>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
